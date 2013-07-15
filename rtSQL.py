@@ -125,11 +125,13 @@ def rt_new_AttrMap(ConCur_list, Objtype_ID, Attr_ID, Chapter_ID):
     (Objtype_ID, Attr_ID, Chapter_ID))
     Cursor.execute(Q)
     X = Cursor.fetchall()
-    if X == (): 
+    if X == '()': 
         Query = (("INSERT INTO AttributeMap (objtype_id, attr_id, chapter_id) VALUES ('%s', '%s', '%s');")%
         (Objtype_ID, Attr_ID, Chapter_ID))
         Cursor.execute(Query)
         Connection.commit()
+    else:
+        pass
 #=======================================================================
 """
 Фунция добавляет новый объект и возвращает его ID
